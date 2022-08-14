@@ -6,7 +6,7 @@ This file documents a collection of TAG models reported in our paper.
 
 #### How to Read the Tables
 * The "Name" column contains a link to the config file. 
-*  Note that ”l” and ”h” represent layer number and head dimension of M3 Transformers, respectively. "Top" denotes the number of proposals used for keypoint sampling from RPN stage. ”Rel. Trans.” and ”Rep. and Scal. Trans.” refer to mutual-relation trans-former, and multi-representation and multi- scale transformer, respectively. "mAP" represents 3D mean average precision (mAP) on LEVEL_1 difficulty in the Vehicle class with IoU threshold of 0.7 on the full 202 Waymo Validation Set.
+*  Note that TAG with TAP achieves the SOTA performance with ANLS score of 0.602 on the test set. Without bells and whistles, our approach greatly outperforms the baselines, M4C and TAP.
 
 ## ST-VQA Dataset Model Zoo
 

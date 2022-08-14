@@ -11,7 +11,7 @@
 ```bash
 conda create -n tag python=3.6 -y
 conda activate tag
-python setup.py develop
 git clone https://github.com/HenryJunW/TAG
 cd TAG
+python setup.py develop
 ```
