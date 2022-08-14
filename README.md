@@ -9,7 +9,7 @@ The code base for [TAG: Boosting Text-VQA via Text-aware Visual Question-answer 
 
 <!-- <p>&nbsp;</p> -->
 
-![network](https://github.com/HenryJunW/TAG/blob/main/figs/TAG_overview_figure.png)
+<br>![network](https://github.com/HenryJunW/TAG/blob/main/figs/TAG_overview_figure.png)
 <!-- <img src="https://drive.google.com/file/d/1i3pMn_5cVaHpDTChtF41miRt1SzfAj6A/view?usp=sharing" width="600"> -->
 
 
