@@ -1,0 +1,155 @@
+dataset_attributes:
+  m4c_stvqa:
+    data_root_dir: ../data
+    fast_read: False
+    features_max_len: 100
+    image_depth_first: False
+    image_features:
+      test:
+      - feat_resx/stvqa/test_task3,ocr_feat_resx/stvqa_conf/test_task3
+      train:
+      - feat_resx/stvqa/train,ocr_feat_resx/stvqa_conf
+      - feat_resx/train,ocr_feat_resx/textvqa_conf/train_images
+      val:
+      - feat_resx/stvqa/train,ocr_feat_resx/stvqa_conf
+    imdb_files:
+      test:
+      - original_dl/ST-VQA/m4c_stvqa/imdb_test_task3.npy
+      train:
+      - original_dl/ST-VQA/m4c_stvqa/st_vqaaug_imdb_train_ocr_en_largest_ocr_bbox_0_4.npy
+      - imdb/m4c_textvqa/aug_imdb_train_ocr_en_largest_ocr_bbox_0_4.npy
+      val:
+      - original_dl/ST-VQA/m4c_stvqa/imdb_subval.npy
+    misc: None
+    pretrain: True
+    processors:
+      answer_processor:
+        params:
+          context_preprocessor:
+            params:
+              
+            type: simple_word
+          max_copy_steps: 12
+          max_length: 100
+          num_answers: 10
+          preprocessor:
+            params:
+              
+            type: simple_word
+          vocab_file: m4c_vocabs/stvqa/fixed_answer_vocab_stvqa_5k.txt
+        type: m4c_answer
+      bbox_processor:
+        params:
+          max_length: 100
+        type: bbox
+      context_processor:
+        params:
+          max_length: 100
+          model_file: .vector_cache/wiki.en.bin
+        type: fasttext
+      copy_processor:
+        params:
+          max_length: 100
+          obj_max_length: 100
+        type: copy
+      ocr_token_processor:
+        params:
+          
+        type: simple_word
+      phoc_processor:
+        params:
+          max_length: 100
+        type: phoc
+      text_processor:
+        params:
+          max_length: 20
+        type: bert_tokenizer
+    return_info: True
+    use_ocr: True
+    use_ocr_info: True
+datasets: m4c_stvqa
+log_foldername: m4c_stvqa_m4c_split_13
+model: m4c_split
+model_attributes:
+  m4c_split:
+    classifier:
+      ocr_max_num: 100
+      ocr_ptr_net:
+        hidden_size: 768
+        query_key_size: 768
+      params: {}
+        
+      type: linear
+    losses:
+    - type: pretrainonly_m4c_decoding_bce_with_mask
+    lr_scale_frcn: 0.1
+    lr_scale_mmt: 1.0
+    lr_scale_text_bert: 0.1
+    metrics:
+    - type: maskpred_accuracy
+    misc: None
+    mmt:
+      hidden_size: 768
+      num_hidden_layers: 4
+    model: m4c_split
+    model_data_dir: ../data
+    obj:
+      dropout_prob: 0.1
+      mmt_in_dim: 2048
+    ocr:
+      dropout_prob: 0.1
+      mmt_in_dim: 3052
+    pretrain: True
+    text_bert:
+      num_hidden_layers: 3
+    text_bert_init_from_bert_base: True
+optimizer_attributes:
+  params:
+    eps: 1e-08
+    lr: 0.0001
+    weight_decay: 0
+  type: Adam
+training_parameters:
+  batch_size: 128
+  clip_gradients: True
+  clip_norm_mode: all
+  data_parallel: False
+  dataset_size_proportional_sampling: True
+  device: cuda
+  distributed: True
+  evalai_inference: False
+  experiment_name: run
+  load_pretrained: False
+  local_rank: 0
+  log_dir: ./logs
+  log_interval: 100
+  logger_level: info
+  lr_ratio: 0.1
+  lr_scheduler: True
+  lr_steps:
+  - 56000
+  - 76000
+  max_epochs: None
+  max_grad_l2_norm: 0.25
+  max_iterations: 96000
+  metric_minimize: False
+  monitored_metric: m4c_stvqa/maskpred_accuracy
+  num_workers: 8
+  patience: 4000
+  pin_memory: False
+  pretrained_mapping:
+    
+  resume: False
+  resume_file: None
+  run_type: train+inference
+  save_dir: save/m4c_split_pretrain_resx
+  seed: 13
+  should_early_stop: False
+  should_not_log: False
+  snapshot_interval: 1000
+  task_size_proportional_sampling: True
+  trainer: base_trainer
+  use_warmup: True
+  verbose_dump: False
+  warmup_factor: 0.2
+  warmup_iterations: 1000
