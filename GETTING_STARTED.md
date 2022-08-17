@@ -53,6 +53,7 @@ are subsequently used to train Text-VQA models, leading to better Text-VQA perfo
   for example, the config file of ./stvqa_tap_w_tag_textvqa_pretrain.yaml.
 
 2. Train a Text-VQA model with the augmented QA pairs. Run it with:
+
 Pretrain:
 ```
 python -m torch.distributed.launch --nproc_per_node $num_gpu tools/run.py --pretrain --tasks vqa --datasets m4c_stvqa --model m4c_split --seed $seed --config save/exp_yaml/stvqa_tap_pretrain_w_tag_textvqa.yaml --save_dir save/$pretrain_savedir training_parameters.distributed True
