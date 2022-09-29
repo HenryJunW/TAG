@@ -15,3 +15,9 @@ git clone https://github.com/HenryJunW/TAG
 cd TAG
 python setup.py develop
 ```
+
+
+Alternatively, you could install the conda environment from existing yaml file
+```bash
+conda env create --name tap --file=tag.yml
+```
