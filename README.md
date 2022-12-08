@@ -38,11 +38,13 @@ We provide a large set of trained models available for download in the [TAG Mode
 Please cite our work if you found it useful,
 
 ```
-@article{wang2022tag,
-  title={TAG: Boosting Text-VQA via Text-aware Visual Question-answer Generation},
-  author={Wang, Jun and Gao, Mingfei and Hu, Yuqian and Selvaraju, Ramprasaath R and Ramaiah, Chetan and Xu, Ran and JaJa, Joseph F and Davis, Larry S},
-  journal={arXiv preprint arXiv:2208.01813},
-  year={2022}
+@inproceedings{Wang_2022_BMVC,
+author    = {Jun Wang and Mingfei Gao and Yuqian Hu and Ramprasaath R. Selvaraju and Chetan Ramaiah and Ran Xu and Joseph JaJa and Larry Davis},
+title     = {TAG: Boosting Text-VQA via Text-aware Visual Question-answer Generation},
+booktitle = {33rd British Machine Vision Conference 2022, {BMVC} 2022, London, UK, November 21-24, 2022},
+publisher = {{BMVA} Press},
+year      = {2022},
+url       = {https://bmvc2022.mpi-inf.mpg.de/0033.pdf}
 }
 
 ```
